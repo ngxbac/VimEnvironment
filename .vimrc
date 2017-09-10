@@ -33,14 +33,6 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" Set default them as dark
-" Airline Configuration
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1 
-let g:airline_theme='dark'
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 
-
 " Git wrapper plugin
 Plugin 'tpope/vim-fugitive'
 
@@ -48,16 +40,26 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 
 " Youcompleteme
-Plugin 'valloric/youcompleteme'
+" Plugin 'valloric/youcompleteme'
 
-" For tmux and vim navigation
-Plugin 'christoomey/vim-tmux-navigator'
+" Surround vim
+Plugin 'tpope/vim-surround'
 
-" Make Vim navigation more easier
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" Supertab
+Plugin 'ervandew/supertab'
+
+" Neocomplete
+Plugin 'Shougo/neocomplete.vim'
+
+" Generic Programming Support 
+Plugin 'jakedouglas/exuberant-ctags'
+Plugin 'honza/vim-snippets'
+Plugin 'Townk/vim-autoclose'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tobyS/vmustache'
+Plugin 'janko-m/vim-test'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'neomake/neomake'	
 
 
 call vundle#end()            " required
@@ -73,3 +75,46 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+
+"""""""""""""""""""""""""""""""""""""
+" Configuration Section
+"""""""""""""""""""""""""""""""""""""
+
+" Show linenumbers
+set number
+set ruler
+
+" Set Proper Tabs
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+
+" Supertab setting
+let SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+" Airline theme configure
+" Set default them as dark
+" Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1 
+let g:airline_theme='dark'
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 
+
+" Make Vim navigation more easier
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Neocomplete Settings
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
